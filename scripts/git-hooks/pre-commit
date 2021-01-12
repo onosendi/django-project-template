@@ -7,13 +7,13 @@ exec 1>&2
 EXIT=0
 
 echo "Validating PEP8 compliance..."
-flake8 social/
+flake8 {{ project_name }}/
 [[ $? != 0 ]] && EXIT=1
 
 echo "Checking for missing migrations..."
-python social/manage.py makemigrations --dry-run --check
+python {{ project_name }}/manage.py makemigrations --dry-run --check
 [[ $? != 0 ]] && EXIT=1
 
-[[ $EXIT != 0 ]] && printf "COMMIT FAILED\n"
+[[ $EXIT != 0 ]] && printf "\nCOMMIT FAILED\n\n"
 
 exit $EXIT
