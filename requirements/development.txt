@@ -1,8 +1,11 @@
 -r base.txt
 
+coverage
 django-extensions
 django-debug-toolbar
 ipython
-coverage
-werkzeug
 pyopenssl
+pytest
+pytest-django
+pytest-xdist
+werkzeug
