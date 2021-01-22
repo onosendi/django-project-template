@@ -4,8 +4,10 @@ coverage
 django-extensions
 django-debug-toolbar
 ipython
+mixer
 pyopenssl
 pytest
+pytest-cov
 pytest-django
 pytest-xdist
 werkzeug
