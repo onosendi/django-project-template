@@ -1,6 +1,5 @@
 -r base.txt
 
-coverage
 django-extensions
 django-debug-toolbar
 ipython
