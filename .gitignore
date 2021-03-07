@@ -1,17 +1,21 @@
 # Python
 __pycache__/
 *.py[co]
-venv/
 
 # npm
-node_modules/
+/node_modules/
 dist/
-.cache/
+/.cache/
+/.parcel-cache/
 *.map
 
 # coverage
-.coverage
-htmlcov/
+/.coverage
+/htmlcov/
 
-.env
+# pytest
+/.pytest_cache/
+
+.DS_Store
+/.env
 *.sqlite3

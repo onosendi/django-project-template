@@ -6,12 +6,24 @@ exec 1>&2
 
 EXIT=0
 
+echo "Formatting code..."
+make black
+[[ $? != 0 ]] && EXIT=1
+
+echo "Sorting imports..."
+make isort
+[[ $? != 0 ]] && EXIT=1
+
 echo "Validating PEP8 compliance..."
-flake8 {{ project_name }}/
+make flake8
 [[ $? != 0 ]] && EXIT=1
 
 echo "Checking for missing migrations..."
-python {{ project_name }}/manage.py makemigrations --dry-run --check
+make check-migrations
+[[ $? != 0 ]] && EXIT=1
+
+echo "Testing application..."
+make test
 [[ $? != 0 ]] && EXIT=1
 
 [[ $EXIT != 0 ]] && printf "\nCOMMIT FAILED\n\n"
